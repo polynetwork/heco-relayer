@@ -52,7 +52,8 @@ Before running, you need feed the configuration file `config.json`.
     },
     "BlockConfig": 20, // blocks to confirm a heco tx
     "HeadersPerBatch": 500, // number of heco headers commited to poly in one transaction at most
-    "MonitorInterval": 3 // seconds of ticker to monitor heco chain
+    "MonitorInterval": 3, // seconds of ticker to monitor heco chain
+    "EnableChangeBookKeeper": false // normally speaking, set this value as false
   },
   "BoltDbPath": "./db", // DB path
   "RoutineNum": 64,

@@ -62,15 +62,16 @@ type PolyConfig struct {
 }
 
 type HecoConfig struct {
-	SideChainId         uint64
-	RestURL             string
-	ECCMContractAddress string
-	ECCDContractAddress string
-	KeyStorePath        string
-	KeyStorePwdSet      map[string]string
-	BlockConfig         uint64
-	HeadersPerBatch     int
-	MonitorInterval     uint64
+	SideChainId            uint64
+	RestURL                string
+	ECCMContractAddress    string
+	ECCDContractAddress    string
+	KeyStorePath           string
+	KeyStorePwdSet         map[string]string
+	BlockConfig            uint64
+	HeadersPerBatch        int
+	MonitorInterval        uint64
+	EnableChangeBookKeeper bool
 }
 
 type ONTConfig struct {

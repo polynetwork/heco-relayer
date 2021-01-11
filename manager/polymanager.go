@@ -327,7 +327,7 @@ func (this *PolyManager) handleDepositEvents(height uint32) bool {
 			}
 		}
 	}
-	if cnt == 0 && isEpoch && isCurr {
+	if cnt == 0 && isEpoch && isCurr && this.config.HecoConfig.EnableChangeBookKeeper {
 		sender := this.selectSender()
 		return sender.commitHeader(hdr, pubkList)
 	}
