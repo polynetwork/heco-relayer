@@ -196,6 +196,7 @@ func (this *HecoManager) MonitorHecoChain() {
 		}
 	}
 }
+
 func (this *HecoManager) init() error {
 	// get latest height
 	latestHeight := this.findLastestHeight()
@@ -205,7 +206,11 @@ func (this *HecoManager) init() error {
 	if this.forceHeight > 0 && this.forceHeight < latestHeight {
 		this.currentHeight = this.forceHeight
 	} else {
-		this.currentHeight = latestHeight
+		if latestHeight > this.config.HecoConfig.BlockConfig {
+			this.currentHeight = latestHeight - this.config.HecoConfig.BlockConfig
+		} else {
+			this.currentHeight = latestHeight
+		}
 	}
 	log.Infof("HecoManager init - start height: %d", this.currentHeight)
 	return nil
@@ -253,6 +258,7 @@ func (this *HecoManager) handleBlockHeader(height uint64) bool {
 		append(append([]byte(scom.MAIN_CHAIN), autils.GetUint64Bytes(this.config.HecoConfig.SideChainId)...), autils.GetUint64Bytes(height)...))
 	if len(raw) == 0 || !bytes.Equal(raw, hdr.Hash().Bytes()) {
 		this.header4sync = append(this.header4sync, rawHdr)
+		//log.Infof("rawHeader height: %d", hdr.Number)
 	}
 	return true
 }
