@@ -30,7 +30,7 @@ import (
 const (
 	POLY_MONITOR_INTERVAL = 1 * time.Second
 
-	HECO_USEFUL_BLOCK_NUM    = 1
+	HECO_USEFUL_BLOCK_NUM    = 20
 	POLY_USEFUL_BLOCK_NUM    = 1
 	DEFAULT_CONFIG_FILE_NAME = "./config.json"
 	Version                  = "1.0"
